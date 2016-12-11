@@ -3,10 +3,7 @@ package com.CMPE331.web.controller;
 import com.CMPE331.data.Bus;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
 
 import java.sql.Connection;
@@ -30,17 +27,16 @@ public class BusController {
         return "main";
     }
 
-    /*
-    @RequestMapping(value = "/hello/{name:.+}", method = RequestMethod.GET)
+
+    @RequestMapping(value = "/{name:.+}", method = RequestMethod.GET)
     public ModelAndView hello(@PathVariable("name") String name) {
 
         ModelAndView model = new ModelAndView();
-        model.setViewName("hello");
+        model.setViewName("main");
         model.addObject("msg", name);
 
         return model;
     }
-    */
 
     @RequestMapping(value = "/main", method = RequestMethod.GET)
     @ResponseBody
@@ -80,5 +76,4 @@ public class BusController {
         }
 
     }
-
 }

@@ -31,16 +31,20 @@
         <h1>${title}</h1>
         <p>
             <c:if test="${not empty name}">
-                Hello ${name}
+                Welcome ${name}
             </c:if>
 
             <c:if test="${empty name}">
                 Welcome to the Bus Automation System!
             </c:if>
         </p>
+
         <p>
+            <input type="text" id="searchDeparture" onkeyup="search()" placeholder="Search for departures..">
+            <input type="text" id="searchDestination" onkeyup="search()" placeholder="Search for destinations..">
             <a class="btn btn-primary btn-lg" role="button" id="list">List Buses</a>
         </p>
+
     </div>
 </div>
 
