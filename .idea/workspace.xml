@@ -2,6 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="fd2ab922-bad0-47da-924f-e3a81c57457f" name="Default" comment="">
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/vcs.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/CMPE331-1.0-SNAPSHOT/WEB-INF/classes/com/CMPE331/web/controller/BusController.class" afterPath="$PROJECT_DIR$/target/CMPE331-1.0-SNAPSHOT/WEB-INF/classes/com/CMPE331/web/controller/BusController.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/com/CMPE331/web/controller/BusController.class" afterPath="$PROJECT_DIR$/target/classes/com/CMPE331/web/controller/BusController.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
@@ -9,6 +10,7 @@
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/jsp/main.jsp" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/jsp/main.jsp" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/webapp/resources/core/js/main.js" afterPath="$PROJECT_DIR$/src/main/webapp/resources/core/js/main.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/CMPE331-1.0-SNAPSHOT/WEB-INF/views/jsp/main.jsp" afterPath="$PROJECT_DIR$/target/CMPE331-1.0-SNAPSHOT/WEB-INF/views/jsp/main.jsp" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/CMPE331-1.0-SNAPSHOT/resources/core/js/main.js" afterPath="$PROJECT_DIR$/target/CMPE331-1.0-SNAPSHOT/resources/core/js/main.js" />
     </list>
     <ignored path="bus-automation.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -1107,12 +1109,12 @@
       <workItem from="1481192183043" duration="2763000" />
       <workItem from="1481195434144" duration="434000" />
       <workItem from="1481195879692" duration="9298000" />
-      <workItem from="1481448622370" duration="10398000" />
+      <workItem from="1481448622370" duration="10686000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="24026000" />
+    <option name="totallyTimeSpent" value="24314000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-9" y="-9" width="1932" height="1048" extended-state="0" />
