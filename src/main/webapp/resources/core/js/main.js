@@ -3,6 +3,7 @@
  */
 
 var myList;
+var btnId;
 
 $(document).ready(function() {
     $("#list").click(function () {
@@ -21,13 +22,46 @@ function buildHtmlTable(selector) {
         var row$ = $('<tr/>');
         for (var colIndex = 0; colIndex<columns.length ; colIndex++){
             var cellValue = myList[i][columns[colIndex]];
+            if (document.getElementById('btn')){
+                $('button').each(function(){
+                    if (this.id == "btn"){
+                        $(this).attr("id",""+btnId)
+                    }
+                });
+            }
             if (cellValue == null) {
                 cellValue = "";
             }
+            if (colIndex==0){
+                btnId = cellValue;
+            }
+            if (colIndex==4){
+                row$.append($('<td><button class="btn btn-primary" id="btn" onclick="changeDisplay();changeText(this.id)"">Choose</button></td>'));
+
+            }
             row$.append($('<td/>').html(cellValue));
         }
+
+
         $(selector).append(row$);
     }
+    if (document.getElementById('btn')){
+        $('button').each(function(){
+            if (this.id == "btn"){
+                $(this).attr("id",""+btnId)
+            }
+        });
+    }
+
+}
+
+function changeDisplay(){
+    var x = document.getElementById('reservation');
+    x.style.display = 'block';
+}
+function changeText(id){
+    var x = document.getElementById('busID');
+    x.innerHTML = "Bus ID: " + id;
 }
 
 function addAllColumnHeaders(myList,selector){
@@ -43,6 +77,8 @@ function addAllColumnHeaders(myList,selector){
             }
         }
     }
+    headerTr$.append($('<th>Select</th>'));
+    columnSet.push("Select");
     $(selector).append(headerTr$);
 
     return columnSet;
