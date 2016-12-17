@@ -1,5 +1,13 @@
-<%@ taglib prefix="spring" uri="http://www.springframework.org/tags"%>
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%--
+     CMPE331 Term Project.
+     Adem Aldemir, Enes Nehir Gürdamar, Emir Burak Selvi, Vehbi Çetin.
+     Here is main JavaServerPage.
+     This file have html codes, button places, button variables and others.
+     Created on 05.12.2016
+--%>
+
+<%@ taglib prefix="spring" uri="http://www.springframework.org/tags" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -7,10 +15,10 @@
 <head>
     <title>BAS</title>
 
-    <spring:url value="/resources/core/css/main.css" var="coreCss" />
-    <spring:url value="/resources/core/css/bootstrap.min.css" var="bootstrapCss" />
-    <link href="${bootstrapCss}" rel="stylesheet" />
-    <link href="${coreCss}" rel="stylesheet" />
+    <spring:url value="/resources/core/css/main.css" var="coreCss"/>
+    <spring:url value="/resources/core/css/bootstrap.min.css" var="bootstrapCss"/>
+    <link href="${bootstrapCss}" rel="stylesheet"/>
+    <link href="${coreCss}" rel="stylesheet"/>
     <link rel="stylesheet" type="text/css" href="/resources/core/css/main.css">
 
 </head>
@@ -75,8 +83,8 @@
 
 </div>
 
-<spring:url value="/resources/core/css/main.js" var="coreJs" />
-<spring:url value="/resources/core/css/bootstrap.min.js" var="bootstrapJs" />
+<spring:url value="/resources/core/css/main.js" var="coreJs"/>
+<spring:url value="/resources/core/css/bootstrap.min.js" var="bootstrapJs"/>
 
 <script src="${coreJs}"></script>
 <script src="${bootstrapJs}"></script>
