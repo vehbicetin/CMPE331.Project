@@ -1,22 +1,24 @@
+/*  CMPE331 Term Project.
+ *  Adem Aldemir, Enes Nehir Gürdamar, Emir Burak Selvi, Vehbi Çetin.
+ *  Settings of Spring Framework and Servlet function.
+ *  Created on 05.12.2016
+ */
+
 package com.CMPE331.servlet3;
 
 import com.CMPE331.config.BusWebConfig;
 import org.springframework.web.servlet.support.AbstractAnnotationConfigDispatcherServletInitializer;
 
-/**
- * Created by Lenovo on 5.12.2016.
- */
-
 public class BusWebInitializer extends AbstractAnnotationConfigDispatcherServletInitializer {
 
     @Override
     protected Class<?>[] getServletConfigClasses() {
-        return new Class[] { BusWebConfig.class };
+        return new Class[]{BusWebConfig.class};
     }
 
     @Override
     protected String[] getServletMappings() {
-        return new String[] { "/" };
+        return new String[]{"/"};
     }
 
     @Override
