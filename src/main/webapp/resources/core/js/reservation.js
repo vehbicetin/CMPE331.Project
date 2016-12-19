@@ -1,3 +1,9 @@
+/*  CMPE331 Term Project.
+ *  Adem Aldemir, Enes Nehir Gürdamar, Emir Burak Selvi, Vehbi Çetin.
+ *  Here is reservation JavaScript page.
+ *  This file making reservation on selected bus and seat. Making them reserved to avoid another reservation.
+ *  Created on 19.12.2016
+ */
 
 var myList;
 var sBus;
