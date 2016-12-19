@@ -33,8 +33,6 @@ function buildHtmlTable(selector) {
                     }
                     $("#"+this.id).click(function () {
                         document.getElementById('bus_id').value = this.id;
-                        document.getElementById('seat_id').value = this.id;
-                        document.getElementById('status').value = "true";
                         document.forms[0].submit();
                         if ($('#excelDataTableTwo').find('td').length == 0){
                             $.ajax({url: "/seats", success: function(result){

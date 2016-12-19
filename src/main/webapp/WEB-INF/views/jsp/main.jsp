@@ -62,8 +62,6 @@
 
 <form method="post" action="choose" style="display: none">
     <input type="number" id="bus_id" name="bus_id">
-    <input type="number" id="seat_id" name="seat_id">
-    <input type="text" id="status" name="status" >
     <input type="submit" value="Show Seats" id="btnSubmit">
 </form>
 

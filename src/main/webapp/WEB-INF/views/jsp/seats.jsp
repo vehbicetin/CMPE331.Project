@@ -45,6 +45,11 @@
 
 <br>
 
+<form method="post" action="reservation" style="display: none" id="frmSeat">
+    <input type="number" id="seat_id" name="seat_id">
+    <input type="submit" value="Show Seats" id="btnSubmit">
+</form>
+
 <footer>
     <p>&#169 Bus Automation System 2016</p>
 </footer>

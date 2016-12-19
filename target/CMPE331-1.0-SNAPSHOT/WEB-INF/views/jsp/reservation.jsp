@@ -7,11 +7,11 @@
 <head>
     <title>BAS</title>
 
-    <spring:url value="/resources/core/css/seats.css" var="coreCss" />
+    <spring:url value="/resources/core/css/reservation.css" var="coreCss" />
     <spring:url value="/resources/core/css/bootstrap.min.css" var="bootstrapCss" />
     <link href="${bootstrapCss}" rel="stylesheet" />
     <link href="${coreCss}" rel="stylesheet" />
-    <link rel="stylesheet" type="text/css" href="/resources/core/css/seats.css">
+    <link rel="stylesheet" type="text/css" href="/resources/core/css/reservation.css">
 
 </head>
 <body>
@@ -38,17 +38,19 @@
             </c:if>
         </p>
 
+        <form action="complete" method="post" >
+            <table id="excelDataTableThree" style="display: none"></table>
+            <input type="text" id="selectedS" name="selectedS" contenteditable="false" placeholder="Bus & Seat">
+            <input id="name" type="text" placeholder="Name" name="name"><br>
+            <input type="text" placeholder="Credit Card Number" name="c_number" size="50">
+            <br><br>
+            <input type="submit" value="Submit" onclick="alert(document.getElementById('name').value + ', Reservation is completed! ' + document.getElementById('selectedS').value)">
+        </form>
+
     </div>
 </div>
 
-<table id="excelDataTableTwo"></table>
-
 <br>
-
-<form method="post" action="reservation" style="display: none" id="frmSeat">
-    <input type="number" id="seat_id" name="seat_id">
-    <input type="submit" value="Show Seats" id="btnSubmit">
-</form>
 
 <footer>
     <p>&#169 Bus Automation System 2016</p>
@@ -56,13 +58,14 @@
 
 </div>
 
-<spring:url value="/resources/core/css/seats.js" var="coreJs" />
+<spring:url value="/resources/core/css/reservation.js" var="coreJs" />
 <spring:url value="/resources/core/css/bootstrap.min.js" var="bootstrapJs" />
 
 <script src="${coreJs}"></script>
 <script src="${bootstrapJs}"></script>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
-<script src="/resources/core/js/seats.js"></script>
+<script src="/resources/core/js/reservation.js"></script>
 
 </body>
 </html>
+

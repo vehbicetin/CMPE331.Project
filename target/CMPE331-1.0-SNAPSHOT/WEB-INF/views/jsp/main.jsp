@@ -1,3 +1,11 @@
+<%--
+     CMPE331 Term Project.
+     Adem Aldemir, Enes Nehir Gürdamar, Emir Burak Selvi, Vehbi Çetin.
+     Here is main JavaServerPage.
+     This file have html codes, button places, button variables and others.
+     Created on 05.12.2016
+--%>
+
 <%@ taglib prefix="spring" uri="http://www.springframework.org/tags"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 
@@ -54,8 +62,6 @@
 
 <form method="post" action="choose" style="display: none">
     <input type="number" id="bus_id" name="bus_id">
-    <input type="number" id="seat_id" name="seat_id">
-    <input type="text" id="status" name="status" >
     <input type="submit" value="Show Seats" id="btnSubmit">
 </form>
 

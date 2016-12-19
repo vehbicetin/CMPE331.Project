@@ -3,18 +3,16 @@
  */
 
 var myList;
+var isStatus = true;
 
 $(document).ready(function() {
 
-
-        if ($('#excelDataTableTwo').find('td').length == 0){
-            $.ajax({url: "/res", success: function(result){
-                myList = result;
-                buildHtmlTableForSeats('#excelDataTableTwo');
-            }});
-        }
-
-
+    if ($('#excelDataTableTwo').find('td').length == 0){
+        $.ajax({url: "/res", success: function(result){
+            myList = result;
+            buildHtmlTableForSeats('#excelDataTableTwo');
+        }});
+    }
 });
 
 function buildHtmlTableForSeats(selector) {
@@ -23,10 +21,22 @@ function buildHtmlTableForSeats(selector) {
         var row$ = $('<tr/>');
         for (var colIndex = 0; colIndex<columns.length ; colIndex++){
             var cellValue = myList[i][columns[colIndex]];
+
             if (document.getElementById('seat')){
                 $('button').each(function(){
                     if (this.id == "seat"){
-                        $(this).attr("id","s"+btnId);
+                        $(this).attr("id",""+btnId);
+
+                        $("#"+this.id).click(function () {
+                            document.getElementById('seat_id').value = this.id;
+                            document.forms["frmSeat"].submit();
+                        });
+
+                        if (isStatus!=true){
+                            this.disabled =true;
+                            isStatus = true;
+                        }
+
                     }
                 });
             }
@@ -34,10 +44,16 @@ function buildHtmlTableForSeats(selector) {
                 cellValue = "";
             }
             if (colIndex==0){
+                selectedBus = cellValue;
+            }
+            if (colIndex==1){
                 btnId = cellValue;
             }
+            if (colIndex==2){
+                isStatus = cellValue;
+            }
             if (colIndex==columns.length-1){
-                row$.append($('<td><button class="btn btn-primary" type="submit" onclick="changeDisplay()" id="seat"">Choose</button></td>'));
+                row$.append($('<td><button class="btn btn-primary" type="submit" id="seat"">Choose</button></td>'));
 
             }
             row$.append($('<td/>').html(cellValue));
@@ -49,7 +65,12 @@ function buildHtmlTableForSeats(selector) {
     if (document.getElementById('seat')){
         $('button').each(function(){
             if (this.id == "seat"){
-                $(this).attr("id","s"+btnId);
+                $(this).attr("id",""+btnId);
+                $(this).attr("href","reservation");
+                if (isStatus!=true){
+                    this.disabled =true;
+                    isStatus = true;
+                }
             }
         });
     }

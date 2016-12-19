@@ -29,6 +29,7 @@ import java.util.List;
 public class BusController {
 
     int selectedBus;
+    int selectedSeat;
 
     @RequestMapping(value = "/", method = RequestMethod.GET)
     public String printWelcome(ModelMap model) {
@@ -91,14 +92,23 @@ public class BusController {
     public String chooseBus(@ModelAttribute("SpringWeb")Seat seatModel, ModelMap model){
 
         model.addAttribute("bus_id",seatModel.getBus_id());
-        model.addAttribute("seat_id",seatModel.getSeat_id());
-        model.addAttribute("status",seatModel.isSeat_status());
 
         int bus_id = seatModel.getBus_id();
 
         selectedBus = bus_id;
 
         return "seats";
+    }
+
+    @RequestMapping(value = "/reservation", method = RequestMethod.POST)
+    public String chooseSeat(@ModelAttribute("SpringWeb")Seat seatModel, ModelMap model){
+
+        model.addAttribute("seat_id",seatModel.getSeat_id());
+
+        int seat_id = seatModel.getSeat_id();
+        selectedSeat = seat_id;
+
+        return "reservation";
     }
 
     @RequestMapping(value = "/res", method = RequestMethod.GET)
@@ -136,4 +146,58 @@ public class BusController {
 
     }
 
+    @RequestMapping(value = "/selected", method = RequestMethod.GET)
+    @ResponseBody
+    public List<Seat> showSelectedSeat(){
+        try {
+
+            List<Seat> seatList = new ArrayList<Seat>();
+
+            // Loading drivers for MySQL
+            Class.forName("com.mysql.jdbc.Driver");
+
+            // Creating connection with the database
+            Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/busautomation","cmpe","cmpe1234");
+
+            PreparedStatement ps = con.prepareStatement("SELECT * FROM busautomation.bus_seat WHERE bus_id = "+selectedBus+ " AND seat_id = " + selectedSeat);
+
+            // Execute select SQL statement
+            ResultSet rs = ps.executeQuery();
+
+            while(rs.next()){
+
+                int busid = rs.getInt(1);
+                int seatid = rs.getInt(2);
+                boolean status = rs.getBoolean(3);
+                Seat seat = new Seat(busid, seatid, status);
+                seatList.add(seat);
+            }
+            return seatList;
+        }
+        catch (Exception e){
+            e.printStackTrace();
+            return null;
+        }
+
+    }
+
+    @RequestMapping(value = "/complete", method = RequestMethod.POST)
+    public String reserveTicket(@ModelAttribute("SpringWeb")Seat seatModel, ModelMap model){
+
+
+        try {
+
+            Class.forName("com.mysql.jdbc.Driver");
+            Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/busautomation","cmpe","cmpe1234");
+
+            PreparedStatement ps = con.prepareStatement("UPDATE bus_seat SET status = 0 WHERE bus_id = "+selectedBus+ " AND seat_id = " + selectedSeat);
+            ps.executeUpdate();
+
+            return "main";
+        }
+        catch (Exception e){
+            e.printStackTrace();
+            return null;
+        }
+    }
 }

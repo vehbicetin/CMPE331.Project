@@ -1,5 +1,8 @@
-/**
- * Created by Lenovo on 8.12.2016.
+/*  CMPE331 Term Project.
+ *  Adem Aldemir, Enes Nehir Gürdamar, Emir Burak Selvi, Vehbi Çetin.
+ *  Here is main JavaScript page.
+ *  This file making search function, building html, showing choose button and seats.
+ *  Created on 08.12.2016
  */
 
 var myList;
@@ -30,8 +33,6 @@ function buildHtmlTable(selector) {
                     }
                     $("#"+this.id).click(function () {
                         document.getElementById('bus_id').value = this.id;
-                        document.getElementById('seat_id').value = this.id;
-                        document.getElementById('status').value = "true";
                         document.forms[0].submit();
                         if ($('#excelDataTableTwo').find('td').length == 0){
                             $.ajax({url: "/seats", success: function(result){
