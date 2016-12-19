@@ -1,3 +1,11 @@
+<%--
+     CMPE331 Term Project.
+     Adem Aldemir, Enes Nehir Gürdamar, Emir Burak Selvi, Vehbi Çetin.
+     This JavaServerPage controls the reservation page.
+     This file has html codes, relations between seat and bus, seat status and others.
+     Created on 19.12.2016
+--%>
+
 <%@ taglib prefix="spring" uri="http://www.springframework.org/tags"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 
