@@ -1,17 +1,8 @@
-/*  CMPE331 Term Project.
- *  Adem Aldemir, Enes Nehir Gürdamar, Emir Burak Selvi, Vehbi Çetin.
- *  Here is main JavaScript page.
- *  This file making search function, building html, showing choose button and seats.
- *  Created on 08.12.2016
- */
-
-var myList;
-var btnId;
-
+//////////// USED http://www.webtoolkitonline.com/javascript-tester.html
+//////////// TEST FOR MAIN.JS METHODS
 
 /*
-
-*/
+Result is OK.
 $(document).ready(function() {
     $("#list").click(function () {
         if ($('#excelDataTable').find('td').length == 0){
@@ -22,7 +13,10 @@ $(document).ready(function() {
         }
     })
 });
+*/
 
+/*
+Result is OK.
 function buildHtmlTable(selector) {
     var columns = addAllColumnHeaders(myList,selector);
     for (var i=0; i<myList.length;i++){
@@ -39,12 +33,10 @@ function buildHtmlTable(selector) {
                         document.forms[0].submit();
                         if ($('#excelDataTableTwo').find('td').length == 0){
                             $.ajax({url: "/seats", success: function(result){
-
                                 myList = result;
                                 buildHtmlTableForSeats('#excelDataTableTwo');
                             }});
                         }
-
                         each.stop();
                     });
                 });
@@ -57,12 +49,9 @@ function buildHtmlTable(selector) {
             }
             if (colIndex==columns.length-1){
                 row$.append($('<td><button class="btn btn-primary" onclick="changeDisplay()" type="submit" id="btn"">Choose</button></td>'));
-
             }
             row$.append($('<td/>').html(cellValue));
         }
-
-
         $(selector).append(row$);
     }
     if (document.getElementById('btn')){
@@ -73,7 +62,10 @@ function buildHtmlTable(selector) {
         });
     }
 }
+*/
 
+/*
+Result is OK.
 function buildHtmlTableForSeats(selector) {
     var columns = addAllColumnHeaders(myList,selector);
     for (var i=0; i<myList.length;i++){
@@ -112,12 +104,18 @@ function buildHtmlTableForSeats(selector) {
     }
 
 }
+*/
 
+/*
+Result is OK.
 function changeDisplay(){
     var x = document.getElementById('excelDataTable');
     x.style.display = 'none';
 }
+*/
 
+/*
+Result is OK.
 function addAllColumnHeaders(myList,selector){
     var columnSet = [];
     var headerTr$ = $('<tr/>');
@@ -137,7 +135,10 @@ function addAllColumnHeaders(myList,selector){
 
     return columnSet;
 }
+*/
 
+/*
+Result is OK.
 function search() {
     // Declare variables
     var input, inputTwo, filter, filterTwo, table, tr, td, i;
@@ -151,8 +152,6 @@ function search() {
     if (input != null && inputTwo != null){
         // Loop through all table rows, and hide those who don't match the search query
         for (i = 0; i < tr.length; i++) {
-
-
             td = tr[i].getElementsByTagName("td")[1];
             if (td) {
                 if (td.innerHTML.toUpperCase().indexOf(filter) > -1) {
@@ -174,6 +173,6 @@ function search() {
             }
         }
     }
-
-
 }
+*/
+

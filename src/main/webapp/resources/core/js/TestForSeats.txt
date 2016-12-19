@@ -1,10 +1,8 @@
-/**
- * Created by Lenovo on 19.12.2016.
- */
+//////////// USED http://www.webtoolkitonline.com/javascript-tester.html
+//////////// TEST FOR SEATS.JS METHODS
 
-var myList;
-var isStatus = true;
-
+/*
+Result is OK.
 $(document).ready(function() {
     if ($('#excelDataTableTwo').find('td').length == 0){
         $.ajax({url: "/res", success: function(result){
@@ -13,7 +11,11 @@ $(document).ready(function() {
         }});
     }
 });
+*/
 
+
+/*
+Result is OK.
 function buildHtmlTableForSeats(selector) {
     var columns = addAllColumnHeaders(myList,selector);
     for (var i=0; i<myList.length;i++){
@@ -68,11 +70,14 @@ function buildHtmlTableForSeats(selector) {
     }
 
 }
+*/
 
+
+/*
+Result is OK.
 function addAllColumnHeaders(myList,selector){
     var columnSet = [];
     var headerTr$ = $('<tr/>');
-
     for(var i=0;i<myList.length;i++){
         var rowHash = myList[i];
         for (var key in rowHash){
@@ -85,6 +90,6 @@ function addAllColumnHeaders(myList,selector){
     headerTr$.append($('<th>Select</th>'));
     columnSet.push("Select");
     $(selector).append(headerTr$);
-
     return columnSet;
 }
+*/
