@@ -1,8 +1,12 @@
+/*  CMPE331 Term Project.
+ *  Adem Aldemir, Enes Nehir Gürdamar, Emir Burak Selvi, Vehbi Çetin.
+ *  This class keeps the variables of the seat and status.
+ *  And making get and set functions of these variables.
+ *  Created on 17.12.2016
+ */
+
 package com.CMPE331.data;
 
-/**
- * Created by Lenovo on 17.12.2016.
- */
 public class Seat {
 
     private int bus_id;
