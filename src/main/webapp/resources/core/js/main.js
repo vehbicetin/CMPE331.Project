@@ -8,40 +8,54 @@
 var myList;
 var btnId;
 
-$(document).ready(function () {
+$(document).ready(function() {
     $("#list").click(function () {
-        if ($('#excelDataTable').find('td').length == 0) {
-            $.ajax({
-                url: "/main", success: function (result) {
-                    myList = result;
-                    buildHtmlTable('#excelDataTable');
-                }
-            });
+        if ($('#excelDataTable').find('td').length == 0){
+            $.ajax({url: "/main", success: function(result){
+                myList = result;
+                buildHtmlTable('#excelDataTable');
+            }});
         }
     })
 });
 
 function buildHtmlTable(selector) {
-    var columns = addAllColumnHeaders(myList, selector);
-    for (var i = 0; i < myList.length; i++) {
+
+    var columns = addAllColumnHeaders(myList,selector);
+    for (var i=0; i<myList.length;i++){
         var row$ = $('<tr/>');
-        for (var colIndex = 0; colIndex < columns.length; colIndex++) {
+        for (var colIndex = 0; colIndex<columns.length ; colIndex++){
             var cellValue = myList[i][columns[colIndex]];
-            if (document.getElementById('btn')) {
-                $('button').each(function () {
-                    if (this.id == "btn") {
-                        $(this).attr("id", "" + btnId)
+            if (document.getElementById('btn')){
+                $('button').each(function(){
+                    if (this.id == "btn"){
+                        $(this).attr("id",""+btnId);
                     }
+                    $("#"+this.id).click(function () {
+                        document.getElementById('bus_id').value = this.id;
+                        document.getElementById('seat_id').value = this.id;
+                        document.getElementById('status').value = "true";
+                        document.forms[0].submit();
+                        if ($('#excelDataTableTwo').find('td').length == 0){
+                            $.ajax({url: "/seats", success: function(result){
+
+                                myList = result;
+                                buildHtmlTableForSeats('#excelDataTableTwo');
+                            }});
+                        }
+
+                        each.stop();
+                    });
                 });
             }
             if (cellValue == null) {
                 cellValue = "";
             }
-            if (colIndex == 0) {
+            if (colIndex==0){
                 btnId = cellValue;
             }
-            if (colIndex == 4) {
-                row$.append($('<td><button class="btn btn-primary" id="btn" onclick="changeDisplay();changeText(this.id)"">Choose</button></td>'));
+            if (colIndex==columns.length-1){
+                row$.append($('<td><button class="btn btn-primary" onclick="changeDisplay()" type="submit" id="btn"">Choose</button></td>'));
 
             }
             row$.append($('<td/>').html(cellValue));
@@ -50,33 +64,67 @@ function buildHtmlTable(selector) {
 
         $(selector).append(row$);
     }
-    if (document.getElementById('btn')) {
-        $('button').each(function () {
-            if (this.id == "btn") {
-                $(this).attr("id", "" + btnId)
+    if (document.getElementById('btn')){
+        $('button').each(function(){
+            if (this.id == "btn"){
+                $(this).attr("id",""+btnId);
+            }
+        });
+    }
+}
+
+function buildHtmlTableForSeats(selector) {
+    var columns = addAllColumnHeaders(myList,selector);
+    for (var i=0; i<myList.length;i++){
+        var row$ = $('<tr/>');
+        for (var colIndex = 0; colIndex<columns.length ; colIndex++){
+            var cellValue = myList[i][columns[colIndex]];
+            if (document.getElementById('seat')){
+                $('button').each(function(){
+                    if (this.id == "seat"){
+                        $(this).attr("id","s"+btnId);
+                    }
+                });
+            }
+            if (cellValue == null) {
+                cellValue = "";
+            }
+            if (colIndex==0){
+                btnId = cellValue;
+            }
+            if (colIndex==columns.length-1){
+                row$.append($('<td><button class="btn btn-primary" type="submit" onclick="changeDisplay()" id="seat"">Choose</button></td>'));
+
+            }
+            row$.append($('<td/>').html(cellValue));
+        }
+
+
+        $(selector).append(row$);
+    }
+    if (document.getElementById('seat')){
+        $('button').each(function(){
+            if (this.id == "seat"){
+                $(this).attr("id","s"+btnId);
             }
         });
     }
 
 }
 
-function changeDisplay() {
-    var x = document.getElementById('reservation');
-    x.style.display = 'block';
-}
-function changeText(id) {
-    var x = document.getElementById('busID');
-    x.innerHTML = "Bus ID: " + id;
+function changeDisplay(){
+    var x = document.getElementById('excelDataTable');
+    x.style.display = 'none';
 }
 
-function addAllColumnHeaders(myList, selector) {
+function addAllColumnHeaders(myList,selector){
     var columnSet = [];
     var headerTr$ = $('<tr/>');
 
-    for (var i = 0; i < myList.length; i++) {
+    for(var i=0;i<myList.length;i++){
         var rowHash = myList[i];
-        for (var key in rowHash) {
-            if ($.inArray(key, columnSet) == -1) {
+        for (var key in rowHash){
+            if ($.inArray(key,columnSet) == -1){
                 columnSet.push(key);
                 headerTr$.append($('<th/>').html(key));
             }
@@ -99,7 +147,7 @@ function search() {
     table = document.getElementById("excelDataTable");
     tr = table.getElementsByTagName("tr");
 
-    if (input != null && inputTwo != null) {
+    if (input != null && inputTwo != null){
         // Loop through all table rows, and hide those who don't match the search query
         for (i = 0; i < tr.length; i++) {
 
@@ -125,6 +173,6 @@ function search() {
             }
         }
     }
-    
-    
+
+
 }

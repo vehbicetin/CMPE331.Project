@@ -18,7 +18,7 @@ import org.springframework.web.servlet.view.JstlView;
 @EnableWebMvc //mvc:annotation-driven
 @Configuration
 @ComponentScan({"com.CMPE331.web"})
-public class BusWebConfig extends WebMvcConfigurerAdapter {
+public class SpringWebConfig extends WebMvcConfigurerAdapter {
 
     @Override
     public void addResourceHandlers(ResourceHandlerRegistry registry) {

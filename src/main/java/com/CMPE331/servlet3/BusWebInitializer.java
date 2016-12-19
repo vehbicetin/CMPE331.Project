@@ -6,14 +6,14 @@
 
 package com.CMPE331.servlet3;
 
-import com.CMPE331.config.BusWebConfig;
+import com.CMPE331.config.SpringWebConfig;
 import org.springframework.web.servlet.support.AbstractAnnotationConfigDispatcherServletInitializer;
 
 public class BusWebInitializer extends AbstractAnnotationConfigDispatcherServletInitializer {
 
     @Override
     protected Class<?>[] getServletConfigClasses() {
-        return new Class[]{BusWebConfig.class};
+        return new Class[]{SpringWebConfig.class};
     }
 
     @Override

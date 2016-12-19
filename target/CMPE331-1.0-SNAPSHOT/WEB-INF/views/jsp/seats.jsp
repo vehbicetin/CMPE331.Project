@@ -1,11 +1,3 @@
-<%--
-     CMPE331 Term Project.
-     Adem Aldemir, Enes Nehir Gürdamar, Emir Burak Selvi, Vehbi Çetin.
-     Here is main JavaServerPage.
-     This file have html codes, button places, button variables and others.
-     Created on 05.12.2016
---%>
-
 <%@ taglib prefix="spring" uri="http://www.springframework.org/tags"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 
@@ -15,21 +7,20 @@
 <head>
     <title>BAS</title>
 
-    <spring:url value="/resources/core/css/main.css" var="coreCss" />
+    <spring:url value="/resources/core/css/seats.css" var="coreCss" />
     <spring:url value="/resources/core/css/bootstrap.min.css" var="bootstrapCss" />
     <link href="${bootstrapCss}" rel="stylesheet" />
     <link href="${coreCss}" rel="stylesheet" />
-    <link rel="stylesheet" type="text/css" href="/resources/core/css/main.css">
+    <link rel="stylesheet" type="text/css" href="/resources/core/css/seats.css">
 
 </head>
-
 <body>
-
 <nav class="navbar navbar-inverse navbar-fixed-top">
     <div class="container">
         <div class="navbar-header">
             <a class="navbar-brand" href="#">BAS - Home Page</a>
         </div>
+        <
     </div>
 </nav>
 
@@ -47,25 +38,10 @@
             </c:if>
         </p>
 
-        <p>
-            <input type="text" id="searchDeparture" onkeyup="search()" placeholder="Search for departures..">
-            <input type="text" id="searchDestination" onkeyup="search()" placeholder="Search for destinations..">
-            <a class="btn btn-primary btn-lg" onclick="document.getElementById('excelDataTable').style.display='table'" id="list">List Buses</a>
-        </p>
-
     </div>
 </div>
 
-<table id="excelDataTable"></table>
-<br>
-
-
-<form method="post" action="choose" style="display: none">
-    <input type="number" id="bus_id" name="bus_id">
-    <input type="number" id="seat_id" name="seat_id">
-    <input type="text" id="status" name="status" >
-    <input type="submit" value="Show Seats" id="btnSubmit">
-</form>
+<table id="excelDataTableTwo"></table>
 
 <br>
 
@@ -75,13 +51,13 @@
 
 </div>
 
-<spring:url value="/resources/core/css/main.js" var="coreJs" />
+<spring:url value="/resources/core/css/seats.js" var="coreJs" />
 <spring:url value="/resources/core/css/bootstrap.min.js" var="bootstrapJs" />
 
 <script src="${coreJs}"></script>
 <script src="${bootstrapJs}"></script>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
-<script src="/resources/core/js/main.js"></script>
+<script src="/resources/core/js/seats.js"></script>
 
 </body>
 </html>
