@@ -1,5 +1,8 @@
-/**
- * Created by Lenovo on 19.12.2016.
+/*  CMPE331 Term Project.
+ *  Adem Aldemir, Enes Nehir Gürdamar, Emir Burak Selvi, Vehbi Çetin.
+ *  Here is seat JavaScript page.
+ *  This file creates seat for buses and arranging them for reservation. Making them reserved to avoid another reservation.
+ *  Created on 19.12.2016
  */
 
 var myList;
